@@ -8,7 +8,6 @@ package com.example.testannotation;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
@@ -64,10 +63,6 @@ public final class MainActivity_
         return new MainActivity_.IntentBuilder_(context);
     }
 
-    public static MainActivity_.IntentBuilder_ intent(Fragment supportFragment) {
-        return new MainActivity_.IntentBuilder_(supportFragment);
-    }
-
     @Override
     public void onViewChanged(HasViews hasViews) {
         helloTextView = ((TextView) hasViews.findViewById(id.helloTextView));
@@ -78,24 +73,9 @@ public final class MainActivity_
         extends ActivityIntentBuilder<MainActivity_.IntentBuilder_>
     {
 
-        private Fragment fragmentSupport_;
 
         public IntentBuilder_(Context context) {
             super(context, MainActivity_.class);
-        }
-
-        public IntentBuilder_(Fragment fragment) {
-            super(fragment.getActivity(), MainActivity_.class);
-            fragmentSupport_ = fragment;
-        }
-
-        @Override
-        public void startForResult(int requestCode) {
-            if (fragmentSupport_!= null) {
-                fragmentSupport_.startActivityForResult(intent, requestCode);
-            } else {
-                super.startForResult(requestCode);
-            }
         }
 
     }
