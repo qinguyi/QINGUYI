@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
 		Date now = new Date();
 		String helloMessage = String.format(hello, now.toString());
 		helloTextView.setText(helloMessage); 
+		//i am master
 	}
 
 }
