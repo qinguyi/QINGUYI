@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
 	void initViews() {
 		Date now = new Date();
 		String helloMessage = String.format(hello, now.toString());
-		helloTextView.setText(helloMessage);
+		helloTextView.setText(helloMessage); 
 	}
 
 }
